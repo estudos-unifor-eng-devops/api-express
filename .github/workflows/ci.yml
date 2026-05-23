@@ -16,6 +16,12 @@ jobs:
     - name: Baixar codigo do repositorio
       uses: actions/checkout@v6
 
+    - name: Scan secrets
+      uses: gitleaks/gitleaks-action@v2
+      env:
+        GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Configurar o Node.js
       uses: actions/setup-node@v6
       with:
@@ -26,9 +32,6 @@ jobs:
 
     - name: Executar os Testes Automatizados
       run: npm test -- --coverage
-    
-    - name: Scan secrets
-      uses: gitleaks/gitleaks-action@v2
 
     - name: Envia para o codecov
       if: github.ref == 'refs/heads/main'
