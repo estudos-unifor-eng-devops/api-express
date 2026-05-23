@@ -29,7 +29,7 @@ jobs:
     
     - name: Scan secrets
       uses: gitleaks/gitleaks-action@v2
-      with:
+      env:
         GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
 
     - name: Envia para o codecov
