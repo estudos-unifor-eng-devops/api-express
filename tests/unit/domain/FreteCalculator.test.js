@@ -15,9 +15,9 @@ describe('FreteCalculator.calcular', () => {
     expect(calc.calcular('RJ')).toBe(20);
   });
 
-  it('retorna 20 para qualquer outro estado', () => {
-    expect(calc.calcular('MG')).toBe(20);
-    expect(calc.calcular('BA')).toBe(20);
-    expect(calc.calcular('AM')).toBe(20);
+  it('retorna 30 para qualquer outro estado', () => {
+    expect(calc.calcular('MG')).toBe(30);
+    expect(calc.calcular('BA')).toBe(30);
+    expect(calc.calcular('AM')).toBe(30);
   });
 });
